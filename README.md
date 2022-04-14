@@ -15,7 +15,7 @@ A Telegram Bot which will ask new Group Members to verify them by solving an emo
 
 
 ### Heroku Deploy:
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Jigarvarma2005/Captcha-Pro-bot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/shado-hackers/Captcha-Pro-bot)
 
 ### Host Locally:
 ```shell
