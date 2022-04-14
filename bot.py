@@ -15,8 +15,8 @@ from helper.captcha_maker import number_, emoji_
 app = Client(Config.SESSION_NAME, api_id=Config.APP_ID, api_hash=Config.API_HASH, bot_token=Config.BOT_TOKEN)
 # Local database for saving user info
 LocalDB = {}
-ch_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text="Updates Channel", url="https://t.me/Universal_Projects"),
-                                    InlineKeyboardButton(text="Support Group", url="https://t.me/JV_Community")]])
+ch_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text="Updates Channel", url="https://t.me/OMG_info"),
+                                    InlineKeyboardButton(text="Support Group", url="https://t.me/nexleech")]])
 
 
 @app.on_chat_member_updated()
@@ -129,7 +129,7 @@ async def cb_handler(bot, query):
         chat_id = query.data.split("_")[1]
         user_id = query.data.split("_")[2]
         if query.from_user.id != int(user_id):
-            await query.answer("This Message is Not For You!", show_alert=True)
+            await query.answer("❗This Message is Not For You!", show_alert=True)
             return
         chat = manage_db().chat_in_db(int(chat_id))
         print("proccesing cb data")
@@ -189,10 +189,10 @@ async def cb_handler(bot, query):
         user_id = query.data.split("_")[2]
         _number = query.data.split("_")[3]
         if query.from_user.id != int(user_id):
-            await query.answer("This Message is Not For You!", show_alert=True)
+            await query.answer("❗This Message is Not For You!", show_alert=True)
             return
         if query.from_user.id not in LocalDB:
-            await query.answer("Try Again After Re-Join!", show_alert=True)
+            await query.answer("❕Try Again After Re-Join!", show_alert=True)
             return
         c = LocalDB[query.from_user.id]['captcha']
         tot = LocalDB[query.from_user.id]["total"]
@@ -228,7 +228,7 @@ async def cb_handler(bot, query):
     elif cb_data.startswith("done_"):
         await query.answer("Dont click on same button again", show_alert=True)
     elif cb_data.startswith("wrong_"):
-        await query.answer("Dont click on same button again", show_alert=True)
+        await query.answer("❗Dont click on same button again", show_alert=True)
         
 if __name__ == "__main__":
     app.run()
